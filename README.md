@@ -9,24 +9,23 @@
 | kernel provider | T-Head 自带 | plugin-fl + FlagGems v5.3.4 |
 | 并行 | dp=2 × tp=16 + EP，ep_size=32 | 同 |
 
-## 结论摘要
+## 性能：目标栈慢 9-14%
 
-### 性能：目标栈慢 9-14%
+| case | prefill/decode | Total tok/s 差距 | Median ITL | Peak Output |
+|---|---|---:|---:|---:|
+| 1 | 1024/1024 | −9.1% | +9.2% | −13.3% |
+| 2 | 4096/1024 | −11.2% | +17.9% | −14.3% |
+| 3 | 16384/1024 | −9.4% | +16.4% | −15.4% |
+| 4 | 65536/1024 | **−14.3%** | +16.2% | −19.4% |
 
-| case | prefill/decode | Total tok/s 差距 |
-|---|---|---:|
-| 1 | 1024/1024 | −9.1% |
-| 2 | 4096/1024 | −11.2% |
-| 3 | 16384/1024 | −9.4% |
-| 4 | 65536/1024 | **−14.3%** |
-
+并发 64、256 请求，4 轮取中位数（首轮作 warmup 丢弃；case4 只跑 1 轮）。
 两侧 `gpu_memory_utilization` 有差异（case1-3 目标 0.85 / 基线 0.90），
-但**已验证不影响结论**：case1 两侧 KV 余量都有 2 倍以上（目标能装 148 条序列 vs 需要 64 条），
-完全不受约束而仍差 −9.1%；且缺口幅度不随 KV 压力变化 ——
-case4 的 KV 劣势最小（容量比 0.908）反而缺口最大（峰值比 0.806）。
-三条证据见 [`bench/RESULTS.md`](bench/RESULTS.md)。
+**已验证不影响结论** —— case1 两侧 KV 余量都有 2 倍以上而仍差 −9.1%，
+且缺口幅度不随 KV 压力变化。三条证据与全部指标见 [`bench/RESULTS.md`](bench/RESULTS.md)。
 
-### 算子覆盖率：48/73（graph）→ 45/67（eager）
+同 util=0.90 下两侧 KV 仍差 464,711 vs 422,138 = **9.2%** —— 两栈的真实差异。
+
+## 算子覆盖率：48/73（graph）→ 45/67（eager）
 
 | 范围 | graph 轮 | eager 轮 |
 |---|---:|---:|
@@ -35,28 +34,40 @@ case4 的 KV 劣势最小（容量比 0.908）反而缺口最大（峰值比 0.8
 | 合计 | **48/73（65.75%）** | **45/67（67.16%）** |
 
 graph 模式下 99.0% 的 kernel event 是 CUDA graph replay、没有 ATen parent，
-ATen 分母塌到 16；`--enforce-eager` 后恢复到 28。详见 [`coverage/COVERAGE.md`](coverage/COVERAGE.md)。
+ATen 分母塌到 16；`--enforce-eager` 后恢复到 28。
 
-### 差距根因：**未定位**
+**口径**：这是**类型**覆盖率，不是调用次数、GPU 时间或吞吐比例；
+分子含框架原有 Triton 与 TorchInductor 生成的，**不等于插件贡献率**。
+eager 轮只用于覆盖率，其吞吐（~1.5 s/decode step）不是性能数据。
 
-只有单侧（目标栈）profile，无法归因两栈差异。已排除两条、仍有两条待查。
-详见 [`profile/target-decode.md`](profile/target-decode.md)。
+未覆盖的 ATen 是 `clamp` / `clamp_` / `copy_`（命中 plugin-fl blacklist）与 `aten.mm`（vendor GEMM）。
+详见 [`coverage/COVERAGE.md`](coverage/COVERAGE.md)。
 
-## 必读的限制
+## 目标栈 decode 时间分布
 
-1. **差距根因没查清。** 本仓库不含任何两侧 profile 对比。
-   要做需要另跑一轮基线 profile（0.20.1 要用 `VLLM_TORCH_PROFILER_DIR`，**这条机制未验证**）。
-2. **覆盖率是类型覆盖率**，不是调用次数/GPU 时间/吞吐比例；
-   分子含框架原有 Triton 和 TorchInductor 生成的，**不能当插件贡献率**。
-3. **eager 轮的吞吐（~1.5 s/decode step，graph 模式的 19 倍）不是性能数据**，
-   只用于覆盖率，不可进任何性能对比。
-4. case4 只跑了 1 轮，而那 1 轮本身是 warmup 轮（正常口径会丢弃第 1 轮）。
+rank0，25 个纯 decode step，case1 形状。wall 74.99 ms/step，GPU busy union 81.845 ms/step，
+GPU idle 2.4%，concurrency 1.08x。
+
+| 子系统 | ms/step | 占比 |
+|---|---:|---:|
+| comm | 30.910 | 38.7% |
+| dense GEMM (vendor/acext) | 13.829 | 17.3% |
+| deep_gemm GEMM (MoE+dense) | 13.587 | 17.0% |
+| mHC | 5.241 | 6.6% |
+| ATTN sparse decode | 3.924 | 4.9% |
+| copy/alloc | 3.707 | 4.6% |
+| 其他 | 3.562 | 4.5% |
+| KV | 1.667 | 2.1% |
+| indexer | 1.605 | 2.0% |
+| quant | 1.508 | 1.9% |
+
+单侧数据（仅目标栈），详见 [`profile/target-decode.md`](profile/target-decode.md)。
 
 ## 目录
 
 ```
 bench/                基线与目标栈压测原始数据
-  RESULTS.md          对比表 + util 差异为何不影响结论
+  RESULTS.md          全部指标 + util 差异为何不影响结论
   baseline/case{1..4}/
   target/case{1..4}/
 coverage/             算子覆盖率
@@ -66,10 +77,10 @@ coverage/             算子覆盖率
   eager-09-29-control-no-gems/    对照组
   gems-oplists/       FlagGems 执行日志（DP0 侧）
 profile/
-  target-decode.md    目标栈 decode 子系统拆解（单侧）
+  target-decode.md    目标栈 decode 子系统拆解
 findings/
-  deepgemm-num-groups.md   num_groups=12 零命中（待查）
-  flagos-blacklist.md      K2 blacklist 实测生效（已排除）
+  deepgemm-num-groups.md   DeepGEMM 调优表对 num_groups=12 零命中
+  flagos-blacklist.md      K2 blacklist 实测在生效
 plugins/
   README.md           两个插件的改动整理（仅整理，未提交上游）
 ```
@@ -82,14 +93,4 @@ plugins/
 - 目标栈要求 `/workspace/vllm-0.24.0/vllm/` 下**没有 `.so`**：
   `_C_ops_registry.py:168-172` 一旦 `import vllm._C` 成功就提前 return，
   跳过 105 个 schema 的注册 —— 插件本身就是 kernel provider。
-- 两节点用外部 LB 式 DP（`--data-parallel-rank`），**握手有 5 分钟硬超时**，
-  所以两侧必须约定整点启动。
-- 容器 PID 1 是 `sleep infinity`，**没有 init reaper**，僵尸进程会堆积；
-  判断进程死活不能用 `[ -d /proc/$PID ]` 或 `ps -p`（僵尸仍保留 `/proc/<pid>`），
-  要读 `/proc/<pid>/stat` 的 state 字段并把 `Z` 当作已死。
-
-## 已知的流程缺陷
-
-约定模式只负责**起**服务，**没有任何一侧负责停**。
-09-28 那轮两个节点各自漏了 17 小时（每卡 ~90 GB、util 0%），是系统性缺陷不是疏忽。
-计划在 launcher 里加可选的 `MAX_ALIVE_SEC` 看门狗，**尚未实现**。
+- 384 experts / ep_size=32 = 12 experts/rank。

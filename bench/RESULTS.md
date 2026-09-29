@@ -122,9 +122,9 @@ case4 把目标栈从 util=0.85 对齐到 0.90 重跑，差距只从 −15.0% �
 
 1. **decode 侧差距（ITL +9~18%）在 case1-3 上随 prefill 增大而变大**，case1 +9.2% → case2 +17.9% → case3 +16.4%。
 2. **Peak Output tok/s 的差距（−13~19%）一律大于 Total tok/s 的差距（−9~14%）**，四个 case 都是。
-3. **case3 的 Median TTFT 目标栈反而快 9.4%** —— 唯一一项目标栈占优的指标，原因未查。
-4. **case4 的 Median TTFT +189%** 远超其他 case，且 Peak Output −19.4% 也是最差。
-   case4 额外那约 5pp 的差距（−14.3% vs case1-3 的 −9~11%）**没有解释**。
+3. **case3 的 Median TTFT 目标栈反而快 9.4%** —— 唯一一项目标栈占优的指标。
+4. **case4 的 Median TTFT +189%** 远超其他 case，且 Peak Output −19.4% 也是最差；
+   其 −14.3% 的总差距也高于 case1-3 的 −9~11% 约 5pp。
 5. **峰值输出的缺口（~0.85）与 KV 余量无关** —— case1 有 2.3 倍余量、case3 只有 0.27 倍，
    缺口一样大；case4 的 KV 劣势最小反而缺口最大。见上面「util 设置差异」一节。
 
@@ -138,9 +138,3 @@ target/case4-superseded-util085/   09-24 目标栈 case4，util=0.85，已被上
 ```
 
 `raw_runs.csv` 是逐轮原始值（含被丢弃的 warmup 轮），`run*.log` 是 `vllm bench serve` 的完整输出。
-
-## 未解决
-
-- case4 额外 5pp 差距无解释（−14.3% vs case1-3 的 −9~11%）。
-- 差距根因未定位：只有单侧（目标栈）profile，见 `../profile/`。
-- 09-22 那轮 CUDA graph capture 在 43/51 卡死的原因至今不明（eager 轮绕过了，不等于查清）。

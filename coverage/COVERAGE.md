@@ -12,6 +12,18 @@
 
 两轮 `verification.json` 的 `checks_passed` 都是 `true`。
 
+## 抓取条件
+
+| | graph 轮 09-28 | eager 轮 09-29 |
+|---|---|---|
+| 形状 | case1（1024/1024、并发 64、256 请求） | 8 并发 × 96 token |
+| 窗口 | 1856 token ≈ 29 step | 168 token / 8 seq ≈ 21 step |
+| trace | 244 MB / 16 worker | 987 MB / 16 worker |
+
+eager 每个算子都是真 launch 而非 replay，所以 trace 大 4 倍、
+decode 约 **1.5 s/step**（graph 模式 Median ITL 78.73 ms 的 ~19 倍）。
+**eager 轮只用于算子覆盖率，其吞吐不是性能数据。**
+
 ## 为什么要抓两轮
 
 graph 轮的 ATen 分母塌了：
@@ -142,15 +154,6 @@ deep_gemm cutlass、flash attention、tilelang 的 `mhc_*`/`hc_*` 全是非 Trit
 因为那时它们都藏在 graph 里没被单独看见。
 
 16 个 audit json 全部 `cudagraph_mode=NONE`、`registered_aten=854`，0 个 SKIPPED。
-
-## ⚠️ eager 轮的吞吐不可用
-
-eager 单请求 32 token 花 **47 秒**，约 **1.5 s/decode step**，
-是 graph 模式 Median ITL 78.73 ms 的 **~19 倍**。
-**这个数字不能写进任何和基线的性能对比。** eager 轮只用于算子覆盖率。
-
-抓取窗口：168 token / 8 seq ≈ 21 个 decode step。
-trace 体积 987 MB（16 rank × ~64 MB，是 graph 轮 244 MB 的 4 倍，因为每个算子都是真 launch）。
 
 ## 复现
 
