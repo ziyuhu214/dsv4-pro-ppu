@@ -1,0 +1,81 @@
+{
+  "model": "DeepSeek-V4-Pro (vLLM 0.24.0 + plugin-fl + FlagGems, dp2xtp16 EP32)",
+  "scope": "GPU-linked ATen + independent GPU kernels; Gems + Triton",
+  "combined": {
+    "numerator": 48,
+    "denominator": 73,
+    "percent": 65.75342465753425,
+    "uncovered": 25
+  },
+  "aten": {
+    "numerator": 13,
+    "denominator": 16,
+    "percent": 81.25,
+    "uncovered": 3
+  },
+  "kernel": {
+    "numerator": 35,
+    "denominator": 57,
+    "percent": 61.40350877192982,
+    "uncovered": 22
+  },
+  "before_reviewed_grouping": {
+    "numerator": 48,
+    "denominator": 73,
+    "percent": 65.75342465753425,
+    "uncovered": 25
+  },
+  "excluded_aten": 47,
+  "excluded_previously_covered": 0,
+  "observed_gpu_kernel_symbols": 75,
+  "represented_gpu_kernel_symbols": 75,
+  "reviewed_groups": 0,
+  "capture": {
+    "input_mode": "worker_scans",
+    "worker_count": 16,
+    "worker_traces": [
+      "/tmp/prof_tgt/dp0_pp0_tp0_dcp0_ep0_rank0.1790592971504138617.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp1_dcp0_ep1_rank1.1790592971314685422.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp10_dcp0_ep10_rank10.1790592971266474726.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp11_dcp0_ep11_rank11.1790592971285329791.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp12_dcp0_ep12_rank12.1790592971292431630.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp13_dcp0_ep13_rank13.1790592971414496280.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp14_dcp0_ep14_rank14.1790592971274121251.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp15_dcp0_ep15_rank15.1790592971314070071.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp2_dcp0_ep2_rank2.1790592971309960762.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp3_dcp0_ep3_rank3.1790592971243683047.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp4_dcp0_ep4_rank4.1790592971397978914.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp5_dcp0_ep5_rank5.1790592971295556606.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp6_dcp0_ep6_rank6.1790592971249672781.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp7_dcp0_ep7_rank7.1790592971446227665.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp8_dcp0_ep8_rank8.1790592971278708011.pt.trace.json.gz",
+      "/tmp/prof_tgt/dp0_pp0_tp9_dcp0_ep9_rank9.1790592971419603892.pt.trace.json.gz"
+    ],
+    "graph_replay_kernel_events": [
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778,
+      154778
+    ],
+    "gems_log_supplied": false,
+    "registration_audit_supplied": false,
+    "provenance_supplied": true
+  },
+  "uncovered_aten": [
+    "aten.clamp",
+    "aten.clamp_",
+    "aten.copy_"
+  ]
+}

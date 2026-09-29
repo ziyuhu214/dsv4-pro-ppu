@@ -1,0 +1,93 @@
+diff --git a/vllm_fl/platform.py b/vllm_fl/platform.py
+index 7e61722..82ec5b3 100644
+--- a/vllm_fl/platform.py
++++ b/vllm_fl/platform.py
+@@ -46,6 +46,26 @@ dist_backend_dict = {
+     "musa": "mccl",
+ }
+ 
++# Which env var the runtime uses to restrict visible devices, and the ray flag
++# that tells ray to leave it alone. Keyed by device_type, same as
++# dist_backend_dict above.
++#
++# vLLM needs both. Leaving them at the base-class defaults (interface.py:153
++# placeholder and an empty list at :158) breaks ray multi-node: ray_executor
++# populates NOSET from current_platform.ray_noset_device_env_vars, so an empty
++# list means ray never sees it and masks the visible-devices var down to one
++# card per actor. device_count() then returns 1 and every worker with
++# local_rank > 0 dies with "CUDA error: invalid device ordinal".
++#
++# Only device types whose names are verifiable are listed: "cuda" and ray's
++# npu/ascend. musa and ptpu are deliberately absent — ray ships no accelerator
++# module for them, so there is no NOSET var to set, and guessing a name would be
++# worse than falling back to current behaviour.
++device_control_env_var_dict = {
++    "cuda": "CUDA_VISIBLE_DEVICES",
++    "npu": "ASCEND_RT_VISIBLE_DEVICES",
++}
++
+ 
+ class PlatformFL(Platform):
+     _enum = PlatformEnum.OOT
+@@ -66,8 +86,19 @@ class PlatformFL(Platform):
+     dist_backend: str = (
+         "flagcx" if "FLAGCX_PATH" in os.environ else dist_backend_dict.get(device_name, "nccl")
+     )
+-    ### TODO(lms): dispatch device_control_env_var
+-    # device_control_env_var: str = "CUDA_VISIBLE_DEVICES"
++    # Dispatched on device_type, mirroring dist_backend_dict. Falls back to the
++    # base-class placeholder for device types not in the map, preserving the
++    # previous behaviour for vendors that cannot be verified here.
++    device_control_env_var: str = device_control_env_var_dict.get(
++        device_info.device_type, Platform.device_control_env_var
++    )
++    # Consumed by ray_executor(_v2) to populate the actor runtime_env; see the
++    # comment on device_control_env_var_dict for why an empty list is harmful.
++    ray_noset_device_env_vars: list[str] = (
++        [f"RAY_EXPERIMENTAL_NOSET_{device_control_env_var_dict[device_info.device_type]}"]
++        if device_info.device_type in device_control_env_var_dict
++        else []
++    )
+ 
+     def is_cuda_alike(self) -> bool:
+         """Stateless version of [torch.cuda.is_available][]."""
+diff --git a/vllm_fl/worker/worker.py b/vllm_fl/worker/worker.py
+index 508aa9b..c60c233 100644
+--- a/vllm_fl/worker/worker.py
++++ b/vllm_fl/worker/worker.py
+@@ -389,7 +389,34 @@ class WorkerFL(WorkerBase):
+                 f"be less than or equal to the number of visible devices "
+                 f"({visible_device_count})."
+             )
+-        self.device = torch.device(f"{current_platform.device_type}:{self.local_rank}")
++        # Publish the logical->physical mapping ray discovered, then translate
++        # through it. WorkerFL is a parallel implementation of WorkerBase rather
++        # than a subclass of core's Worker, so neither of these happens for free
++        # (core does them at gpu_worker.py:276-313).
++        #
++        # Without this, local_rank was used directly as the device ordinal. That
++        # is correct only while the assigned GPUs happen to be contiguous and
++        # start at 0 — true for a whole-node allocation, false as soon as ray
++        # hands out a subset (e.g. two instances sharing one node), where the
++        # worker would silently bind to the wrong device.
++        #
++        # device_type is kept in the f-string rather than hardcoding "cuda" like
++        # core does, since this plugin also serves npu/musa vendors.
++        assigned_physical_gpu_ids = self.parallel_config.assigned_physical_gpu_ids
++        if assigned_physical_gpu_ids is not None:
++            from vllm.platforms.interface import set_assigned_physical_gpu_ids
++
++            set_assigned_physical_gpu_ids(assigned_physical_gpu_ids)
++            assert self.local_rank < len(assigned_physical_gpu_ids), (
++                f"local_rank {self.local_rank} is out of bounds for "
++                f"assigned_physical_gpu_ids {assigned_physical_gpu_ids}"
++            )
++        visible_device_index = current_platform.logical_device_id_to_visible_device_id(
++            self.local_rank
++        )
++        self.device = torch.device(
++            f"{current_platform.device_type}:{visible_device_index}"
++        )
+         current_platform.set_device(self.device)
+ 
+         current_platform.check_if_supports_dtype(self.model_config.dtype)

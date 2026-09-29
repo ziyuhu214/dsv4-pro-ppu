@@ -1,0 +1,45 @@
+{
+  "checks_passed": true,
+  "checks": [
+    "covered IDs subset of denominator",
+    "unique identities",
+    "all GPU symbols represented",
+    "no ATen/independent kernel double counting",
+    "uniform covered status in groups",
+    "source inputs unchanged",
+    "CSV and JSON round-trip"
+  ],
+  "input_sha256": {
+    "/tmp/cov_scans/rank0.json": "075a5304a3955cc368eedd24229dcd1e35a42bb966f4ece44d257c3157fc40e0",
+    "/tmp/cov_scans/rank1.json": "2b7b17e14653bb50bc640bd0a0219ffd8206007fbf6516d8c8683e3522c5a46f",
+    "/tmp/cov_scans/rank10.json": "19b3062df2329722741d3c15b14bd11f0fb8618e5bca8972a64d160b39b1bee6",
+    "/tmp/cov_scans/rank11.json": "1325834e354f4c047e2c9e62f2020eb7b5d0d93d8dabf17180949129d1e2f90e",
+    "/tmp/cov_scans/rank12.json": "ae429f9579fc5eaf3d5f8c751178117b8b77f5c6b2d17d13c00e89da58a25bdf",
+    "/tmp/cov_scans/rank13.json": "f878f9e1ce3eb0183bc85ec409de1ed63817b97f66eab1c5443ab98d7b939e6b",
+    "/tmp/cov_scans/rank14.json": "5c27ea7bd0c4519533687aae8d56b7a1ac7064269c743252f495f6416bc2445c",
+    "/tmp/cov_scans/rank15.json": "004bc60f0ff46af288ad81cbee6f910572062773e253aab885b4dcf544d87c33",
+    "/tmp/cov_scans/rank2.json": "60e3e67c0dab3d46ec15eea978ad9823777ca85dc28d06e79948484726239ace",
+    "/tmp/cov_scans/rank3.json": "1fff2bffe6171d292b57d275589cbd2c5e51b854a02c4cb9e421af0ea55c8d7a",
+    "/tmp/cov_scans/rank4.json": "0501fb1d17a1317da87408ee06d44239706c421a1b7ba312106e6d2b63d977ae",
+    "/tmp/cov_scans/rank5.json": "bbb6af76cd73251fd4d646a3bcbf2e06d12f699722384453fa20423e43a6a257",
+    "/tmp/cov_scans/rank6.json": "eb0fa0efb3560af85a10876f2c2c94136b2f96cdc8b5ec32026cbf1c5ce7b4a3",
+    "/tmp/cov_scans/rank7.json": "c15c568fad9b75ab4f712a90cf48c36e14b2dbaeab871f364a8d8ff62ab98557",
+    "/tmp/cov_scans/rank8.json": "fe7de65429f1c74a693a7565411f8657d313c5ef82c1fe235fca90ffee73c251",
+    "/tmp/cov_scans/rank9.json": "6153829b0d4157e39c422bd10923c84957aadb2b7fb2d8fce354917e39998fe3",
+    "/tmp/cov_prov.json": "651d3612426b6196385d6374cf33865c20682b7e119b32a2d6bf939a224f7bc1"
+  },
+  "output_sha256": {
+    "operators.csv": "cf953d0c4beb57fc20065d26edec3cac772da12b09eb41618a17742d8866ffe3",
+    "covered.csv": "d237eaa40a7afc7d64b7a204602cf2773ef575a2cd85e91c04ebe2d20ea47e97",
+    "coverage.csv": "572cb29d4ca18588c30efdfe0fc4469a719c62fb4f284384b8e7584d873953cf",
+    "kernel_mapping.csv": "84316af4bfb2f29424ca54346ae1659d42d3dd09cb96725fc850a8abe37d772f",
+    "excluded_aten.csv": "339ec4fcf341addaeab109550f4c1d9364dfbca184b2cd9c567c089fb34aed99",
+    "summary.json": "50a749ed60e22dd900756253e80a758efdc2d69786af64a50e76e129bf70a71a",
+    "operator_evidence.json": "5cdfc78560b341e6e2c6d25c81064c3df58b2ee8590d525de32090eed750760d",
+    "kernel_accounting.json": "7a1f689c35604549cc5e656eebc410b55955e26b3d71defcab417f91ba004eae",
+    "review.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "fusion_source_evidence.json": "d308b115662bee1068211f6ded2168f627a45434fc7a9a7a5f6d8b4752fdb954",
+    "REPORT.md": "58ff528fbf8601a7503f39dba7a5b1357471f75828ec1f3e1e381c08aa11a65b"
+  },
+  "script_sha256": "5d81e736bf6a47a390309b304316cd28b2f0e5c688f93c504144b18ea8a013fe"
+}

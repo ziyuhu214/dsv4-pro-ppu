@@ -1,0 +1,13 @@
+150afcb perf(ops): route mHC prenorm GEMM to PPU deep_gemm
+71bff45 perf(patches): cached pinned arange for decode metadata (off by default)
+6bde0d4 perf(ops): cheaper empty() wrapper plus a dtype knob
+85350aa fix(ops): actually load the deepgemm tuned configs
+3c78240 perf(dispatch): blacklist 13 cheap FlagGems ops on thead
+cd2a71b feat(patches): stop padding Q heads to 64 on PPU
+f615560 fix(ops): zero-fill integer aten::empty allocations on PPU
+218bf47 perf(ops): zero-fill only padding head slots in qnorm insert (skip their RMSNorm/RoPE)
+9bebd1d chore(benchmarks): point throughput-serve bench at DeepSeek-V4-Flash int8
+3474000 feat(worker): enable CUDA graph capture on thead PPU + fix graph memory accounting
+617a867 feat(quant): acext INT8 W8A8 scaled-MM linear kernel for T-Head PPU
+026ab85 feat: DeepSeek-V4 PPU ops and runtime patches (MLA sparse + W8A8-INT8)
+ab2cd7d feat(ops): port PPU deep_gemm int8 GEMM/MoE path from T-Head vendor fork

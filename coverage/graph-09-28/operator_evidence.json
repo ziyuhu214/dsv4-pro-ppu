@@ -1,0 +1,2085 @@
+[
+  {
+    "operator_id": "aten._softmax",
+    "operator_name": "aten._softmax",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "softmax_kernel_inner"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten._softmax",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "softmax_kernel_inner"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "softmax_kernel_inner"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten._to_copy",
+    "operator_name": "aten._to_copy",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_to_copy_func_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten._to_copy",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "_to_copy_func_kernel_rank_1"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "_to_copy_func_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.add",
+    "operator_name": "aten.add",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "add_func_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.add",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "add_func_kernel_rank_1"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "add_func_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.argmax",
+    "operator_name": "aten.argmax",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "argmax_kernel_inner"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.argmax",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "argmax_kernel_inner"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "argmax_kernel_inner"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.clamp",
+    "operator_name": "aten.clamp",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.clamp",
+        "kind": "aten",
+        "covered": false,
+        "reasons": [],
+        "linked_gpu_kernels": [
+          "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>)"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.clamp_",
+    "operator_name": "aten.clamp_",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.clamp_",
+        "kind": "aten",
+        "covered": false,
+        "reasons": [],
+        "linked_gpu_kernels": [
+          "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>)"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.copy_",
+    "operator_name": "aten.copy_",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+      "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.copy_",
+        "kind": "aten",
+        "covered": false,
+        "reasons": [],
+        "linked_gpu_kernels": [
+          "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+          "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+          "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#3}::operator()() const::{lambda(int)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.div_",
+    "operator_name": "aten.div_",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "true_div_func_kernel_rank_1",
+      "true_div_func_kernel_rank_2"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.div_",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "true_div_func_kernel_rank_1",
+          "true_div_func_kernel_rank_2"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "true_div_func_kernel_rank_1",
+          "true_div_func_kernel_rank_2"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.exponential_",
+    "operator_name": "aten.exponential_",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "fused_exponential_kernel_f32_unroll8"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.exponential_",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "fused_exponential_kernel_f32_unroll8"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "fused_exponential_kernel_f32_unroll8"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.fill_",
+    "operator_name": "aten.fill_",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "fill_scalar_func_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.fill_",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "fill_scalar_func_kernel_rank_1"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "fill_scalar_func_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.floor_divide",
+    "operator_name": "aten.floor_divide",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "floor_div_func_tensor_scalar_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.floor_divide",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "floor_div_func_tensor_scalar_kernel_rank_1"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "floor_div_func_tensor_scalar_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.ge",
+    "operator_name": "aten.ge",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "ge_func_scalar_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.ge",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "ge_func_scalar_kernel_rank_1"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "ge_func_scalar_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.index",
+    "operator_name": "aten.index",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_index_linearized_jit_function"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.index",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "_index_linearized_jit_function"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "_index_linearized_jit_function"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.linear",
+    "operator_name": "aten.linear",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "linear_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.linear",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "linear_kernel"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "linear_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.sub",
+    "operator_name": "aten.sub",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认; 尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "sub_func_tensor_scalar_kernel_rank_1",
+      "void at::native::unrolled_elementwise_kernel<at::native::CUDAFunctor_add<int>, std::array<char*, 3ul>, 4, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::CUDAFunctor_add<int>, std::array<char*, 3ul>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.sub",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "sub_func_tensor_scalar_kernel_rank_1",
+          "void at::native::unrolled_elementwise_kernel<at::native::CUDAFunctor_add<int>, std::array<char*, 3ul>, 4, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::CUDAFunctor_add<int>, std::array<char*, 3ul>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "sub_func_tensor_scalar_kernel_rank_1",
+          "void at::native::unrolled_elementwise_kernel<at::native::CUDAFunctor_add<int>, std::array<char*, 3ul>, 4, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::CUDAFunctor_add<int>, std::array<char*, 3ul>, TrivialOffsetCalculator<2, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)"
+        ],
+        "implementation_source": "尚未确认; 尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "aten.zero_",
+    "operator_name": "aten.zero_",
+    "operator_kind": "aten",
+    "kernel_name": "",
+    "covered": true,
+    "coverage_reason": "correlated_triton_implementation",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "zeros_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "aten.zero_",
+        "kind": "aten",
+        "covered": true,
+        "reasons": [
+          "correlated_triton_implementation"
+        ],
+        "linked_gpu_kernels": [
+          "zeros_kernel"
+        ],
+        "fusion_kernels": [],
+        "gems_registration_evidence": [],
+        "gpu_kernels": [
+          "zeros_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_636215fa8c5b2bc1269f",
+    "operator_name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj6144ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+    "operator_kind": "kernel",
+    "kernel_name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj6144ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj6144ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj6144ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj6144ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_66b0c37a7ce418ab9c53",
+    "operator_name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj7168ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+    "operator_kind": "kernel",
+    "kernel_name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj7168ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj7168ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj7168ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi128ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li3ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType3ELj7168ESC_Lj12ELj16EEELb0EEELi512EEEvNT_6ParamsE"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_3b4fffb8b45d3340d48e",
+    "operator_name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi64ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi64ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li8ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType0ELj1024ESC_Lj1ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+    "operator_kind": "kernel",
+    "kernel_name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi64ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi64ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li8ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType0ELj1024ESC_Lj1ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi64ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi64ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li8ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType0ELj1024ESC_Lj1ELj16EEELb0EEELi512EEEvNT_6ParamsE"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi64ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi64ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li8ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType0ELj1024ESC_Lj1ELj16EEELb0EEELi512EEEvNT_6ParamsE",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "_ZN7cutlass6KernelIN9deep_gemm10GemmKernelIN3aiu4gemm11threadblock13MmaMultistageINS5_10AiuLoaderAIaNS_6layout8RowMajorENS_4gemm9GemmShapeILi64ELi64ELi128EEENSB_ILi32ELi32ELi128EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS5_10AiuLoaderBIaNS8_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi64ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li8ENSA_4warp11MmaTensorOpISD_aS9_aSN_iS9_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaS9_aSN_iS9_NS14_13OpMultiplyAddEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EifLNS1M_9ScaleType4KindE2ELNS_15FloatRoundStyleE2EEELb0EEESC_S1F_Li1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEES9_Lb0EiEENS1T_20TileIteratorTensorOpISD_SE_iS9_Lb0EEENST_18SharedLoadIteratorINSZ_18CompactedThreadMapEiLi32EEENS1C_ILi0ELi4EEELi1ELi1EEENS1_9SchedulerIL8GemmType0ELj1024ESC_Lj1ELj16EEELb0EEELi512EEEvNT_6ParamsE"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_9c3f9f9676a5c4cc1e7f",
+    "operator_name": "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi32ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi1ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE",
+    "operator_kind": "kernel",
+    "kernel_name": "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi32ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi1ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi32ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi1ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi32ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi1ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi32ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi1ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi128ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li128ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_f2ca688f0a899d69f96a",
+    "operator_name": "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi64ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE",
+    "operator_kind": "kernel",
+    "kernel_name": "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi64ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi64ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi64ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "_ZN7cutlass6KernelINS_4gemm6kernel23GemmWithEpilogueVisitorIN3aiu4gemm11threadblock13MmaMultistageINS6_10AiuLoaderAIaNS_6layout8RowMajorENS1_9GemmShapeILi64ELi128ELi64EEENSB_ILi32ELi32ELi64EEENSB_ILi16ELi16ELi32EEEN5awmma8fragmentIN9mmacommon8matrix_aELi16ELi16ELi32EaNSH_9row_majorEEEEENS6_10AiuLoaderBIaNS9_11ColumnMajorESC_SD_SE_NSG_INSH_8matrix_bELi16ELi16ELi32EaNSH_9col_majorEEEEENS_8epilogue11threadblock20PrefetchTileIteratorINST_26OutputTileOptimalThreadMapINST_15OutputTileShapeILi128ELi8ELi2ELi1ELi1EEENSW_ILi1ELi4ELi1ELi1ELi4EEELi256ELi8ELi16EEENS_10bfloat16_tESC_LNSS_20PrefetchStrategyType4KindE0EEEiNS_4arch4Sm80ESC_SD_SE_Li4ENS1_4warp11MmaTensorOpISD_aSA_aSN_iSA_NS16_17MmaTensorOpPolicyINS14_3MmaISE_Li32EaSA_aSN_iSA_NS14_21OpMultiplyAddSaturateEEENS_11MatrixShapeILi1ELi1EEEEELi1ELb0EbLi1ELi1EEEaEENST_19EpilogueWithVisitorINST_27EpilogueVisitorPerRowPerColISC_Li256ENST_22PredicatedTileIteratorISZ_fLb0ELb0EEENS1J_ISZ_S10_Lb0ELb0EEEifNSS_6thread17LinearCombinationIS10_Li8EffLNS1M_9ScaleType4KindE1ELNS_15FloatRoundStyleE2EEELb0ELb0EEESC_NS17_ISD_aSA_aSN_iSA_NS18_INS19_ISE_Li32EaSA_aSN_iSA_NS14_13OpMultiplyAddEEES1D_EELi1ELb0EbLi1ELi1EEELi1ENSS_4warp24FragmentIteratorTensorOpISD_SE_iNS_5ArrayIiLi8ELb1EEESA_Lb0EiEENS1X_25TileIteratorTensorOpMixedISD_SE_iLi32ELi16ELi8ELi8EEENST_23SharedLoadIteratorMixedINSZ_18CompactedThreadMapEiLi32ELi16ELi8ELi8EEENS1C_ILi0ELi4EEELi2ELi1EEENS1_11threadblock30GemmIdentityThreadblockSwizzleILi1EEEEELi512EEEvNT_6ParamsE"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_507b00d341f1c431f0d7",
+    "operator_name": "_build_c128a_topk_metadata_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "_build_c128a_topk_metadata_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_build_c128a_topk_metadata_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_build_c128a_topk_metadata_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_build_c128a_topk_metadata_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_fb629cbab09e46ad1ab5",
+    "operator_name": "_compressed_slot_mapping_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "_compressed_slot_mapping_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_compressed_slot_mapping_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_compressed_slot_mapping_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_compressed_slot_mapping_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_5fd4e488154a1706330b",
+    "operator_name": "_compute_global_topk_indices_and_lens_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "_compute_global_topk_indices_and_lens_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_compute_global_topk_indices_and_lens_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_compute_global_topk_indices_and_lens_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_compute_global_topk_indices_and_lens_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_d65f75282099f04d25f7",
+    "operator_name": "_compute_slot_mapping_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "_compute_slot_mapping_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_compute_slot_mapping_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_compute_slot_mapping_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_compute_slot_mapping_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_16e3afa77f97076fb8c4",
+    "operator_name": "_compute_swa_indices_and_lens_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "_compute_swa_indices_and_lens_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_compute_swa_indices_and_lens_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_compute_swa_indices_and_lens_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_compute_swa_indices_and_lens_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_c345700934340fb3e3c9",
+    "operator_name": "_count_expert_num_tokens",
+    "operator_kind": "kernel",
+    "kernel_name": "_count_expert_num_tokens",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_count_expert_num_tokens"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_count_expert_num_tokens",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_count_expert_num_tokens"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_c074681ac8eec8b37516",
+    "operator_name": "_fused_indexer_q_rope_fp32_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "_fused_indexer_q_rope_fp32_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_fused_indexer_q_rope_fp32_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_fused_indexer_q_rope_fp32_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_fused_indexer_q_rope_fp32_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_309bcee36be93789423f",
+    "operator_name": "_fused_inv_rope_float32_per_head",
+    "operator_kind": "kernel",
+    "kernel_name": "_fused_inv_rope_float32_per_head",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_fused_inv_rope_float32_per_head"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_fused_inv_rope_float32_per_head",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_fused_inv_rope_float32_per_head"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_c777bad89257071e7d79",
+    "operator_name": "_fused_kv_compress_norm_rope_insert_indexer_attn_sm80",
+    "operator_kind": "kernel",
+    "kernel_name": "_fused_kv_compress_norm_rope_insert_indexer_attn_sm80",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_fused_kv_compress_norm_rope_insert_indexer_attn_sm80"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_fused_kv_compress_norm_rope_insert_indexer_attn_sm80",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_fused_kv_compress_norm_rope_insert_indexer_attn_sm80"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_221e77758eac1d1f3df2",
+    "operator_name": "_fused_kv_compress_norm_rope_insert_sparse_attn_sm80",
+    "operator_kind": "kernel",
+    "kernel_name": "_fused_kv_compress_norm_rope_insert_sparse_attn_sm80",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_fused_kv_compress_norm_rope_insert_sparse_attn_sm80"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_fused_kv_compress_norm_rope_insert_sparse_attn_sm80",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_fused_kv_compress_norm_rope_insert_sparse_attn_sm80"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_24ce8a8b73db9cc21e2a",
+    "operator_name": "_fused_q_kv_rmsnorm_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "_fused_q_kv_rmsnorm_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_fused_q_kv_rmsnorm_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_fused_q_kv_rmsnorm_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_fused_q_kv_rmsnorm_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_e2908efd4a02ef7ffd12",
+    "operator_name": "_fwd_kernel_ep_gather",
+    "operator_kind": "kernel",
+    "kernel_name": "_fwd_kernel_ep_gather",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_fwd_kernel_ep_gather"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_fwd_kernel_ep_gather",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_fwd_kernel_ep_gather"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_cd19b8ec6bf2b1a84209",
+    "operator_name": "_fwd_kernel_ep_scatter_1",
+    "operator_kind": "kernel",
+    "kernel_name": "_fwd_kernel_ep_scatter_1",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_fwd_kernel_ep_scatter_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_fwd_kernel_ep_scatter_1",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_fwd_kernel_ep_scatter_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_3bb7884035a1305f1139",
+    "operator_name": "_fwd_kernel_ep_scatter_2_optimal",
+    "operator_kind": "kernel",
+    "kernel_name": "_fwd_kernel_ep_scatter_2_optimal",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_fwd_kernel_ep_scatter_2_optimal"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_fwd_kernel_ep_scatter_2_optimal",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_fwd_kernel_ep_scatter_2_optimal"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_de007cee8d85fe1af0f3",
+    "operator_name": "_gather_flaggems_jit_function",
+    "operator_kind": "kernel",
+    "kernel_name": "_gather_flaggems_jit_function",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_gather_flaggems_jit_function"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_gather_flaggems_jit_function",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_gather_flaggems_jit_function"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_c74ed233c0919d00e13e",
+    "operator_name": "_per_token_quant_int8",
+    "operator_kind": "kernel",
+    "kernel_name": "_per_token_quant_int8",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_per_token_quant_int8"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_per_token_quant_int8",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_per_token_quant_int8"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_6ce857fcd2262efe4953",
+    "operator_name": "_repeat_flaggems_jit_function",
+    "operator_kind": "kernel",
+    "kernel_name": "_repeat_flaggems_jit_function",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_repeat_flaggems_jit_function"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_repeat_flaggems_jit_function",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_repeat_flaggems_jit_function"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_1b1704e73214640fd2d9",
+    "operator_name": "_save_partial_states_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "_save_partial_states_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "_save_partial_states_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "_save_partial_states_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "_save_partial_states_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_c1ade1e35a7f492b4e64",
+    "operator_name": "add_func_kernel_rank_2",
+    "operator_kind": "kernel",
+    "kernel_name": "add_func_kernel_rank_2",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "add_func_kernel_rank_2"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "add_func_kernel_rank_2",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "add_func_kernel_rank_2"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_0f5535bb6811854014b1",
+    "operator_name": "add_func_tensor_scalar_kernel_rank_1",
+    "operator_kind": "kernel",
+    "kernel_name": "add_func_tensor_scalar_kernel_rank_1",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "add_func_tensor_scalar_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "add_func_tensor_scalar_kernel_rank_1",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "add_func_tensor_scalar_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_6d7ab4d5be0e9b348239",
+    "operator_name": "embedding_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "embedding_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "embedding_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "embedding_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "embedding_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_511ac1a0f728f00bad20",
+    "operator_name": "full_func_scalar_kernel_rank_1",
+    "operator_kind": "kernel",
+    "kernel_name": "full_func_scalar_kernel_rank_1",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "full_func_scalar_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "full_func_scalar_kernel_rank_1",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "full_func_scalar_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_ca8554580ad671340d81",
+    "operator_name": "fused_qnorm_rope_kv_insert_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "fused_qnorm_rope_kv_insert_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "fused_qnorm_rope_kv_insert_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "fused_qnorm_rope_kv_insert_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "fused_qnorm_rope_kv_insert_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_3cef0e320a5dfc1913cd",
+    "operator_name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile32x32x16x16x128x3_layout0x1x0x0_align1x1x2x2_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+    "operator_kind": "kernel",
+    "kernel_name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile32x32x16x16x128x3_layout0x1x0x0_align1x1x2x2_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile32x32x16x16x128x3_layout0x1x0x0_align1x1x2x2_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile32x32x16x16x128x3_layout0x1x0x0_align1x1x2x2_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile32x32x16x16x128x3_layout0x1x0x0_align1x1x2x2_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_2c9f4ea375537718d276",
+    "operator_name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x256x32x64x64x2_layout0x1x0x0_align1x1x4x4_splitk2_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+    "operator_kind": "kernel",
+    "kernel_name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x256x32x64x64x2_layout0x1x0x0_align1x1x4x4_splitk2_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x256x32x64x64x2_layout0x1x0x0_align1x1x4x4_splitk2_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x256x32x64x64x2_layout0x1x0x0_align1x1x4x4_splitk2_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x256x32x64x64x2_layout0x1x0x0_align1x1x4x4_splitk2_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_4d834b0b0b4059020702",
+    "operator_name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x64x16x32x128x4_layout0x1x0x0_align1x1x4x4_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+    "operator_kind": "kernel",
+    "kernel_name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x64x16x32x128x4_layout0x1x0x0_align1x1x4x4_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x64x16x32x128x4_layout0x1x0x0_align1x1x4x4_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x64x16x32x128x4_layout0x1x0x0_align1x1x4x4_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xFP32xFP32_tile64x64x16x32x128x4_layout0x1x0x0_align1x1x4x4_splitk0_fusion0_prefetch0_fp32tc0_ptrhost1_schedule0"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_be387348afab55fa42ac",
+    "operator_name": "get_mla_metadata_kernel(Mla_metadata_params)",
+    "operator_kind": "kernel",
+    "kernel_name": "get_mla_metadata_kernel(Mla_metadata_params)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "get_mla_metadata_kernel(Mla_metadata_params)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "get_mla_metadata_kernel(Mla_metadata_params)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "get_mla_metadata_kernel(Mla_metadata_params)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_a56bd21b72f286728621",
+    "operator_name": "hc_head_fuse_tilelang_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "hc_head_fuse_tilelang_kernel",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "hc_head_fuse_tilelang_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "hc_head_fuse_tilelang_kernel",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "hc_head_fuse_tilelang_kernel"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_98d968a7ee666001b53d",
+    "operator_name": "hc_prenorm_gemm_tilelang_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "hc_prenorm_gemm_tilelang_kernel",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "hc_prenorm_gemm_tilelang_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "hc_prenorm_gemm_tilelang_kernel",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "hc_prenorm_gemm_tilelang_kernel"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_dadd0d11589a1d13d825",
+    "operator_name": "masked_fill_kernel_kernel_rank_2",
+    "operator_kind": "kernel",
+    "kernel_name": "masked_fill_kernel_kernel_rank_2",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "masked_fill_kernel_kernel_rank_2"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "masked_fill_kernel_kernel_rank_2",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "masked_fill_kernel_kernel_rank_2"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_49e34dc30c45feb5296f",
+    "operator_name": "mhc_post_tilelang_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "mhc_post_tilelang_kernel",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "mhc_post_tilelang_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "mhc_post_tilelang_kernel",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "mhc_post_tilelang_kernel"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_d4da1807a0a10bf46dca",
+    "operator_name": "mhc_pre_big_fuse_with_norm_tilelang_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "mhc_pre_big_fuse_with_norm_tilelang_kernel",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "mhc_pre_big_fuse_with_norm_tilelang_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "mhc_pre_big_fuse_with_norm_tilelang_kernel",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "mhc_pre_big_fuse_with_norm_tilelang_kernel"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_5a79b935e2014f03ba7c",
+    "operator_name": "mul_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "mul_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "mul_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "mul_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "mul_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_7acecd860fef88967912",
+    "operator_name": "mul_scalar_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "mul_scalar_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "mul_scalar_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "mul_scalar_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "mul_scalar_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_749be9c3aeb66e307d63",
+    "operator_name": "non_tle_top_k_per_row_decode",
+    "operator_kind": "kernel",
+    "kernel_name": "non_tle_top_k_per_row_decode",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "non_tle_top_k_per_row_decode"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "non_tle_top_k_per_row_decode",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "non_tle_top_k_per_row_decode"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_23b60a72fc6e254c4200",
+    "operator_name": "pcclKernel_AllGather_RING_LL_Sum_int8_t(ncclDevComm*, ncclChannelWork*)",
+    "operator_kind": "kernel",
+    "kernel_name": "pcclKernel_AllGather_RING_LL_Sum_int8_t(ncclDevComm*, ncclChannelWork*)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "pcclKernel_AllGather_RING_LL_Sum_int8_t(ncclDevComm*, ncclChannelWork*)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "pcclKernel_AllGather_RING_LL_Sum_int8_t(ncclDevComm*, ncclChannelWork*)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "pcclKernel_AllGather_RING_LL_Sum_int8_t(ncclDevComm*, ncclChannelWork*)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_b95bdb43b9c9fa02e482",
+    "operator_name": "pcclKernel_ReduceScatter_RING_LL_Sum___ppu_bfloat16(ncclDevComm*, ncclChannelWork*)",
+    "operator_kind": "kernel",
+    "kernel_name": "pcclKernel_ReduceScatter_RING_LL_Sum___ppu_bfloat16(ncclDevComm*, ncclChannelWork*)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "pcclKernel_ReduceScatter_RING_LL_Sum___ppu_bfloat16(ncclDevComm*, ncclChannelWork*)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "pcclKernel_ReduceScatter_RING_LL_Sum___ppu_bfloat16(ncclDevComm*, ncclChannelWork*)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "pcclKernel_ReduceScatter_RING_LL_Sum___ppu_bfloat16(ncclDevComm*, ncclChannelWork*)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_e47e5d6fa020532d1f42",
+    "operator_name": "reduction_dtypeFP32xFP32xFP32_align4x4_fusion0_prefetch0_rtype0_ptrhost1(acrtc::ReduceKernelArgument<float>)",
+    "operator_kind": "kernel",
+    "kernel_name": "reduction_dtypeFP32xFP32xFP32_align4x4_fusion0_prefetch0_rtype0_ptrhost1(acrtc::ReduceKernelArgument<float>)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "reduction_dtypeFP32xFP32xFP32_align4x4_fusion0_prefetch0_rtype0_ptrhost1(acrtc::ReduceKernelArgument<float>)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "reduction_dtypeFP32xFP32xFP32_align4x4_fusion0_prefetch0_rtype0_ptrhost1(acrtc::ReduceKernelArgument<float>)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "reduction_dtypeFP32xFP32xFP32_align4x4_fusion0_prefetch0_rtype0_ptrhost1(acrtc::ReduceKernelArgument<float>)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_9ec7414063a3c03d5b72",
+    "operator_name": "rms_norm_loop_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "rms_norm_loop_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "rms_norm_loop_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "rms_norm_loop_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "rms_norm_loop_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_a415cdd128c34f11c457",
+    "operator_name": "sigmoid_forward_kernel_rank_1",
+    "operator_kind": "kernel",
+    "kernel_name": "sigmoid_forward_kernel_rank_1",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "sigmoid_forward_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "sigmoid_forward_kernel_rank_1",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "sigmoid_forward_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_7edca42426d6f28e9802",
+    "operator_name": "silu_and_mul_kernel_kernel_rank_2",
+    "operator_kind": "kernel",
+    "kernel_name": "silu_and_mul_kernel_kernel_rank_2",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "silu_and_mul_kernel_kernel_rank_2"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "silu_and_mul_kernel_kernel_rank_2",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "silu_and_mul_kernel_kernel_rank_2"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_9814dac5b7115dcaba4c",
+    "operator_name": "softplus_forward_kernel_rank_1",
+    "operator_kind": "kernel",
+    "kernel_name": "softplus_forward_kernel_rank_1",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "softplus_forward_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "softplus_forward_kernel_rank_1",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "softplus_forward_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_92bbd4a6a09c9b15f7ad",
+    "operator_name": "sqrt_func_kernel_rank_1",
+    "operator_kind": "kernel",
+    "kernel_name": "sqrt_func_kernel_rank_1",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "sqrt_func_kernel_rank_1"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "sqrt_func_kernel_rank_1",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "sqrt_func_kernel_rank_1"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_1d5aa7090c8b0f3e3637",
+    "operator_name": "sum_dim_kernel_inner",
+    "operator_kind": "kernel",
+    "kernel_name": "sum_dim_kernel_inner",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "sum_dim_kernel_inner"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "sum_dim_kernel_inner",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "sum_dim_kernel_inner"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_7921da18d23484f22238",
+    "operator_name": "topk_single_stage_kernel",
+    "operator_kind": "kernel",
+    "kernel_name": "topk_single_stage_kernel",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "尚未确认（已证实 Triton）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "topk_single_stage_kernel"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "topk_single_stage_kernel",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "topk_single_stage_kernel"
+        ],
+        "implementation_source": "尚未确认（已证实 Triton）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_bdd66936abb9ee8e35b2",
+    "operator_name": "triton_poi_fused___and_____or___add_bitwise_not_ge_lt_mul_sub_0",
+    "operator_kind": "kernel",
+    "kernel_name": "triton_poi_fused___and_____or___add_bitwise_not_ge_lt_mul_sub_0",
+    "covered": true,
+    "coverage_reason": "proven_triton_kernel",
+    "implementation_source": "TorchInductor（生成源码证据；同名候选可能不唯一）",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "triton_poi_fused___and_____or___add_bitwise_not_ge_lt_mul_sub_0"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "triton_poi_fused___and_____or___add_bitwise_not_ge_lt_mul_sub_0",
+        "kind": "kernel",
+        "covered": true,
+        "reasons": [
+          "proven_triton_kernel"
+        ],
+        "gpu_kernels": [
+          "triton_poi_fused___and_____or___add_bitwise_not_ge_lt_mul_sub_0"
+        ],
+        "implementation_source": "TorchInductor（生成源码证据；同名候选可能不唯一）"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_e8dbe665ba7fe41d5462",
+    "operator_name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+    "operator_kind": "kernel",
+    "kernel_name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_73ab154e0e0018ffb898",
+    "operator_name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+    "operator_kind": "kernel",
+    "kernel_name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_01898f726e13064acc7c",
+    "operator_name": "void cutlass::device_kernel<cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u> >(cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u>::Params)",
+    "operator_kind": "kernel",
+    "kernel_name": "void cutlass::device_kernel<cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u> >(cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u>::Params)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void cutlass::device_kernel<cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u> >(cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u>::Params)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "void cutlass::device_kernel<cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u> >(cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u>::Params)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "void cutlass::device_kernel<cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u> >(cutlass::gemm::kernel::Sm80PagedMqaLogits<signed char, int, 1u, 64u, 128u, 64u, 2u, 3u, 64u>::Params)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_463666325f1bacf62217",
+    "operator_name": "void flash::flash_fwd_splitkv_mla_combine_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, 32>(Flash_fwd_params)",
+    "operator_kind": "kernel",
+    "kernel_name": "void flash::flash_fwd_splitkv_mla_combine_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, 32>(Flash_fwd_params)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void flash::flash_fwd_splitkv_mla_combine_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, 32>(Flash_fwd_params)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "void flash::flash_fwd_splitkv_mla_combine_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, 32>(Flash_fwd_params)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "void flash::flash_fwd_splitkv_mla_combine_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, 32>(Flash_fwd_params)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_91c6930ac8ab7d512a6d",
+    "operator_name": "void flash::flash_sparse_decode_fwd_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, true>(Flash_fwd_params)",
+    "operator_kind": "kernel",
+    "kernel_name": "void flash::flash_sparse_decode_fwd_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, true>(Flash_fwd_params)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void flash::flash_sparse_decode_fwd_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, true>(Flash_fwd_params)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "void flash::flash_sparse_decode_fwd_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, true>(Flash_fwd_params)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "void flash::flash_sparse_decode_fwd_kernel<Flash_fwd_kernel_traits<512, 16, 64, 16, false, false, cutlass::bfloat16_t, 512, true, false, 1, 1, 64, 2, 4, Flash_kernel_traits<512, 16, 64, 16, 64, false, cutlass::bfloat16_t> >, true>(Flash_fwd_params)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  },
+  {
+    "operator_id": "kernel_f143724e4a090d0d4204",
+    "operator_name": "void pcclKernel_twoShotAllReduceKernel<__ppu_bfloat16, 16, 0, 0, 1, 1>(twoShotDevParams)",
+    "operator_kind": "kernel",
+    "kernel_name": "void pcclKernel_twoShotAllReduceKernel<__ppu_bfloat16, 16, 0, 0, 1, 1>(twoShotDevParams)",
+    "covered": false,
+    "coverage_reason": "按本次 Gems + Triton 口径未确认覆盖",
+    "implementation_source": "尚未确认",
+    "variant_count": "1",
+    "gpu_kernels": [
+      "void pcclKernel_twoShotAllReduceKernel<__ppu_bfloat16, 16, 0, 0, 1, 1>(twoShotDevParams)"
+    ],
+    "group_evidence": null,
+    "members": [
+      {
+        "name": "void pcclKernel_twoShotAllReduceKernel<__ppu_bfloat16, 16, 0, 0, 1, 1>(twoShotDevParams)",
+        "kind": "kernel",
+        "covered": false,
+        "reasons": [],
+        "gpu_kernels": [
+          "void pcclKernel_twoShotAllReduceKernel<__ppu_bfloat16, 16, 0, 0, 1, 1>(twoShotDevParams)"
+        ],
+        "implementation_source": "尚未确认"
+      }
+    ]
+  }
+]

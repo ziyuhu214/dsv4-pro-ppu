@@ -1,0 +1,25 @@
+--- /tmp/cov/vllm-gpu-coverage/scripts/coverage_worker_audit.py	2026-09-24 20:16:30.000000000 +0800
++++ /models/_serve_scripts/dsv4-pro-tp32/_cov_eager/coverage_worker_audit.py	2026-09-29 11:52:24.730981905 +0800
+@@ -23,6 +23,22 @@
+         config = self.vllm_config
+         directory = Path(config.profiler_config.torch_profiler_dir)
+         registrar = flag_gems.current_work_registrar
++        # flag_gems/__init__.py:68 initialises current_work_registrar = None and
++        # only assigns it inside enable()/only_enable(). WorkerFL.__init__ gates
++        # that behind `if fl_envs.USE_FLAGGEMS:` (worker.py:236), so if FlagGems is
++        # ever disabled this hook would raise AttributeError on None.config and
++        # take down all 16 workers during init -- with a traceback pointing at this
++        # audit module instead of at the real cause. Degrade to "no data" instead.
++        if registrar is None:
++            path = directory / f'worker_audit_rank{self.rank}_pid{os.getpid()}.SKIPPED.json'
++            directory.mkdir(parents=True, exist_ok=True)
++            path.write_text(json.dumps({'pid': os.getpid(), 'rank': self.rank,
++                'skipped': 'flag_gems.current_work_registrar is None -- enable() never ran; '
++                           'check fl_envs.USE_FLAGGEMS',
++                'cudagraph_mode': str(config.compilation_config.cudagraph_mode)},
++                ensure_ascii=False, indent=2) + '\n')
++            print(f'[coverage audit] SKIPPED (registrar is None) {path}', flush=True)
++            return
+         entries = []
+         for entry in registrar.config:
+             key, fn = entry[:2]

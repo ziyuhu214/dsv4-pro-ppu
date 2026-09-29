@@ -1,0 +1,6 @@
+c993b3c8 fix(ops): unregister aten::empty override (upstream PR #5438)
+8d3179b0 docs(ops): warn against removing empty()'s zero-store kernel
+ae6fd75e perf(fused): num_real_heads fast path in dsv4 qnorm insert kernel
+26ea167e fix(fused): int64 scale offsets in cp_gather_indexer_quant_cache
+a597ec4c fix(utils): raise sqlite busy timeout for shared tuning-cache DB
+efd9e35e fix(fused): software E4M3FN encode for triton without fp8e4nv (PPU/SM80)

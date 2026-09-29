@@ -1,0 +1,82 @@
+{
+  "model": "DeepSeek-V4-Pro eager (vLLM 0.24.0 + plugin-fl + FlagGems, dp2xtp16 EP32)",
+  "scope": "GPU-linked ATen + independent GPU kernels; Gems + Triton",
+  "combined": {
+    "numerator": 45,
+    "denominator": 67,
+    "percent": 67.16417910447761,
+    "uncovered": 22
+  },
+  "aten": {
+    "numerator": 24,
+    "denominator": 28,
+    "percent": 85.71428571428571,
+    "uncovered": 4
+  },
+  "kernel": {
+    "numerator": 21,
+    "denominator": 39,
+    "percent": 53.84615384615385,
+    "uncovered": 18
+  },
+  "before_reviewed_grouping": {
+    "numerator": 45,
+    "denominator": 67,
+    "percent": 67.16417910447761,
+    "uncovered": 22
+  },
+  "excluded_aten": 48,
+  "excluded_previously_covered": 13,
+  "observed_gpu_kernel_symbols": 74,
+  "represented_gpu_kernel_symbols": 74,
+  "reviewed_groups": 0,
+  "capture": {
+    "input_mode": "worker_scans",
+    "worker_count": 16,
+    "worker_traces": [
+      "/tmp/prof_eager/dp0_pp0_tp0_dcp0_ep0_rank0.1790656313592627957.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp1_dcp0_ep1_rank1.1790656314124057708.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp10_dcp0_ep10_rank10.1790656314211303766.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp11_dcp0_ep11_rank11.1790656314898526978.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp12_dcp0_ep12_rank12.1790656313435467447.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp13_dcp0_ep13_rank13.1790656314179914186.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp14_dcp0_ep14_rank14.1790656313348607048.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp15_dcp0_ep15_rank15.1790656313684644379.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp2_dcp0_ep2_rank2.1790656314937410108.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp3_dcp0_ep3_rank3.1790656315122462795.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp4_dcp0_ep4_rank4.1790656314242026174.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp5_dcp0_ep5_rank5.1790656313817153015.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp6_dcp0_ep6_rank6.1790656314184361835.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp7_dcp0_ep7_rank7.1790656313296199111.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp8_dcp0_ep8_rank8.1790656314281406743.pt.trace.json.gz",
+      "/tmp/prof_eager/dp0_pp0_tp9_dcp0_ep9_rank9.1790656314235517347.pt.trace.json.gz"
+    ],
+    "graph_replay_kernel_events": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "gems_log_supplied": true,
+    "registration_audit_supplied": true,
+    "provenance_supplied": true
+  },
+  "uncovered_aten": [
+    "aten.clamp",
+    "aten.clamp_",
+    "aten.copy_",
+    "aten.mm"
+  ]
+}
