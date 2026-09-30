@@ -16,15 +16,22 @@ FlagGems 职责范围）。其余 17 个 FlagGems 都有实现，未覆盖的原
 | 类别 | 数量 | 原因 | 是否性能问题 |
 |---|---|---|---|
 | A 完全没有 | 5 | 通信域，FlagGems 不覆盖；FlagCX 未安装 | — |
-| B 有源码但派发路径未启用 | 13 | `apply_gems_patches_to_vllm()` 在本栈从未被调用 | 未生效，无法比较 |
+| B 有源码但派发路径未启用 | 13 | `apply_gems_patches_to_vllm()` 在本栈从未被调用 | 已实测：2 项硬性不可用，5 项慢 1.2–2.2x，1 项快 1.5–1.8x |
 | C 有实现且正确，被主动禁用 | 3 | `thead.yaml` 的 `flagos_blacklist` | 是，host 派发开销 10–18x |
 | D 已注册但实测跑了原生 kernel | 1 | 未查明 | 待定 |
 
-最关键的一条：**B 类的 13 个算子不是性能问题，而是接线问题**。FlagGems 为 vLLM 准备的
-14 个库算子 + 7 个模块方法补丁全部挂在 `apply_gems_patches_to_vllm()` 上，而这个函数在
-`vllm-plugin-FL` 和 `vllm-0.24.0` 整个已安装代码树里**没有任何调用点**（已全树 grep 确认）。
-`flag_gems.enable()` 只做 ATen 注册，不碰这张表。所以 MLA decode、paged MQA logits、
-cutlass_scaled_mm、hc_head_fused_kernel 这些 FlagGems 明明写好的实现，在本栈里一次都没跑过。
+B 类的 13 个算子首先是**接线问题**：FlagGems 为 vLLM 准备的 14 个库算子 + 7 个模块方法补丁
+全部挂在 `apply_gems_patches_to_vllm()` 上，而这个函数在 `vllm-plugin-FL` 和 `vllm-0.24.0`
+整个已安装代码树里**没有任何调用点**（已全树 grep 确认）。`flag_gems.enable()` 只做 ATen
+注册，不碰这张表。所以 MLA decode、paged MQA logits、cutlass_scaled_mm、hc_head_fused_kernel
+这些 FlagGems 明明写好的实现，在本栈里一次都没跑过。
+
+但把补丁接上并不等于收益。绕过补丁直接调两侧实测（详见 B 类实测一节）的结论是：
+**接线只对其中 1 项有正向价值**。`cutlass_scaled_mm` int8 在 PPU 的 SM80 上直接
+`NotImplementedError`——接上就崩，而它恰好是全模型最热的 W8A8 GEMM；sparse MLA 断言
+`h_q ∈ {64,128}`，tp=16 时每卡 8 头，结构上不可用；`hc_head_fused_kernel`、MoE 分组 GEMM、
+MLA decode 分别慢 1.4–1.95x、1.24–1.35x、2.2x。唯一值得接的是 paged MQA logits，
+FlagGems 比厂商 `Sm80PagedMqaLogits` 快 1.47–1.84x，而它偏偏不在补丁表里。
 
 ---
 
@@ -54,8 +61,62 @@ FlagGems 不含通信算子实现，这部分归 FlagCX，而 FlagCX 在本环�
 | `cutlass::deep_gemm::GemmKernel<GemmType3,num_groups=12>` | `ops/group_gemm.py` | 同上（MoE 分组 GEMM，12 专家/卡） |
 | `gemm_ktype0_aiu1_mtype1` | `ops/mm.py` | 见 D 类 |
 
-这 13 个里唯一已经拿到 kernel 级对照数据的是 mHC 系列（下文）。其余需要先把补丁接上才有
-可比对象，目前不可测。
+### B 类实测（绕过缺失的补丁，直接调两侧实现）
+
+对照侧的确定花了一轮返工：vLLM 自己的 `_C`/`_flashmla_C` 在本栈**不存在**（`.so` 按栈设定
+停放在 `/tmp/so_park/`，正是为了让 plugin-fl 注册自己的 schema），而 plugin-fl 的
+`register_op_schemas()` 只 define schema、不提供 CUDA 实现。真正跑出 trace 里那些 kernel 的是
+两个厂商库：`deep_gemm`（`1.0.0+v0.2.0.ppu2.1.0`）和 `flash_mla`（`2.0.0+v0.1.0.ppu2.1.0`）。
+下表对照侧全部是这两个库，调用约定取自 plugin-fl 自己的调用点
+（`vllm_fl/ops/ppu_deep_gemm_moe.py:408-453`）。
+
+`gems_k` / `base_k` 为 profiler 统计的 device kernel 时间（µs/call），`ratio` = gems/base，
+**>1 表示 FlagGems 更慢**。形状取 DSv4-Pro config 在 tp=16/ep=32 下的真实值。
+
+| 算子 | 形状 | gems_k | base_k | ratio | 数值差 |
+|---|---|---|---|---|---|
+| `hc_head_fused_kernel` vs tilelang | t=64 | 9.95 | 9.76 | 1.02x | 1.6e-02 |
+| | t=256 | 25.97 | 13.29 | **1.95x** | 3.1e-02 |
+| | t=1024 | 95.78 | 67.37 | 1.42x | 3.1e-02 |
+| | t=4096 | 408.82 | 281.53 | 1.45x | 3.1e-02 |
+| MoE 分组 GEMM bf16 vs `deep_gemm` | t=192 | 408.56 | 329.59 | 1.24x | **0**（逐位） |
+| | t=1024 | 725.76 | 586.95 | 1.24x | **0** |
+| | t=4096 | 2065.89 | 1528.01 | **1.35x** | **0** |
+| paged MQA logits bf16 vs `deep_gemm` | bs=64 | 97.13 | 178.82 | **0.54x（快 1.84x）** | 3.1e-05 /411 |
+| | bs=256 | 458.30 | 672.61 | **0.68x（快 1.47x）** | 6.1e-05 /440 |
+| MLA decode vs `flash_mla` | bs=64 | 912.22 | 410.62 | **2.22x** | 9.8e-04 /0.24 |
+| | bs=256 | 3145.33 | 1454.21 | **2.16x** | 9.8e-04 /0.25 |
+| sparse MLA prefill vs `flash_mla` | sq=64, h_q=8 | **跑不了** | 112.17 | — | `Unsupported h_q` |
+| | sq=1024, h_q=8 | **跑不了** | 1440.11 | — | 同上 |
+| | sq=64, h_q=64（离配置） | 291.97 | 218.48 | 1.34x | 9.8e-04 |
+| | sq=1024, h_q=64（离配置） | 3872.92 | 2849.58 | 1.36x | 9.8e-04 |
+| int8 GEMM vs `deep_gemm` | M=512 | **跑不了** | 76.22 | — | sm80 未实现 |
+| | M=4096 | **跑不了** | 481.61 | — | 同上 |
+
+三个硬性不可用，都不是性能问题：
+
+- **`cutlass_scaled_mm` int8 在 PPU 上根本不能跑。** FlagGems 按 `SM_VERSION_NUM` 分派，而
+  `sm80`/`sm89`/`sm100`/`sm120` 四个分支全是 `raise NotImplementedError`，只有 `>=90` 有实现。
+  PPU-ZW810E 报 `capability (8, 0)`，所以走 `cutlass_scaled_mm_sm80` 直接抛异常。这是 W8A8
+  int8 GEMM——全模型最热的路径，而且它就在补丁表里。**就算把补丁接上，这一项会立刻崩。**
+- **sparse MLA 在我们的并行度下不可用。** `fused/flashmla_sparse.py:1107` 断言
+  `HQ == 64 or HQ == 128`，而 tp=16 时每卡 128/16 = 8 头。补了一组 h_q=64 的离配置测量，
+  说明即使头数合规它也比厂商慢 1.34–1.36x。
+- **MoE 分组 GEMM 逐位相同但慢 1.24–1.35x**，是这批里数值最干净、结论最确定的一项。
+
+唯一的正向结果：**paged MQA logits 的 FlagGems Triton 实现比厂商 `Sm80PagedMqaLogits`
+快 1.47–1.84x**，相对误差 ~1e-7。它偏偏不在补丁表里，连接线的入口都没有。
+
+`get_mla_metadata`、`mhc_fused` 未单独测：前者是纯 metadata 小 kernel，后者在本栈的 trace 里
+调用量可忽略。mHC 系列见下文单独一节。
+
+旁证一条（未追到底）：`deep_gemm.get_num_sms()` 在 PPU 上返回 20，而 `torch` 的
+`multi_processor_count` 和 vLLM 的 `num_compute_units()` 都返回 64。deep_gemm 的
+`paged_mqa_logits_common` 断言 `(schedule_meta.shape[0]-1) % get_num_sms() == 0`
+（`jit_kernels/attention.py:451`），用 64 建 metadata 会直接断言失败——我第一次就踩了这个。
+vLLM 的 `indexer.py:284-285` 正是用 `num_compute_units()` 给 `scheduler_metadata_buffer`
+定形。serve trace 里 `Sm80PagedMqaLogits` 是跑起来的，所以这条路径实际能工作，
+未继续追查；记录在此以备后用。
 
 ## C 类：FlagGems 有实现、正确，但被主动禁用（3 个）
 
@@ -135,7 +196,7 @@ per-call 固定开销问题，不是 kernel 质量问题。形状越小越吃亏
 
 ## 附：mHC 系列 A/B（vLLM tilelang vs FlagGems Triton）
 
-B 类里唯一已有对照数据的一组，摘自先前 kernel 级测量（`ratio>1` 表示 FlagGems 更快）：
+摘自先前的 kernel 级测量，对照侧是 vLLM 的 tilelang 实现（`ratio>1` 表示 FlagGems 更快）：
 
 | tokens | mhc_post 比值 | mhc_pre 比值 |
 |---|---|---|
@@ -159,14 +220,15 @@ B 类里唯一已有对照数据的一组，摘自先前 kernel 级测量（`rat
 
 ## 可执行的结论
 
-1. **优先级最高不是调优，是接线。** B 类 13 个算子里，`hc_head_fused_kernel` 和
-   `cutlass_scaled_mm` 已经在 FlagGems 的补丁表里，只差一次
-   `apply_gems_patches_to_vllm()` 调用；MLA decode 的三个模块补丁同理。
-   接上之后这些算子才可能进分子，也才有性能可比。
-2. **C 类不要动。** FlagGems 的 kernel 本身不慢（整数路径更快），慢的是 per-call 派发。
+1. **不要整表接线。** 接上 `apply_gems_patches_to_vllm()` 能提高覆盖率，但实测里 B 类只有
+   paged MQA logits 一项是正向的（快 1.47–1.84x），而它不在补丁表里，需要单独加入口。
+   补丁表里的 `cutlass_scaled_mm` 在 SM80 上必崩，接线前必须先加 SM 门控或补 sm80 实现。
+2. **值得优先推给 FlagGems 上游的三件事**：`cutlass_scaled_mm` 缺 sm80/sm89 实现（PPU 这类
+   SM80 域卡全部用不了，且是最热的 W8A8 路径）；`addmm_kernel` 不融合 bias（1.70x）；
+   sparse MLA 的 `h_q ∈ {64,128}` 限制（tp≥16 时每卡头数不足，直接不可用）。
+3. **C 类不要动。** FlagGems 的 kernel 本身不慢（整数路径更快），慢的是 per-call 派发。
    在 eager 路径上黑名单是正确选择；若要回收这部分覆盖率，方向是降低 Triton 派发开销
    （或只在 graph 模式下放开），而不是改 kernel。
-3. **`addmm` 的 bias 不融合**是 FlagGems 侧一个明确可提的性能问题（1.70x）。
 4. **A 类需要 FlagCX**，否则通信部分的分母无法回收。
 5. `aten.mm` 的来源未查明，需要带 stack trace 的 profile；在此之前不把它归入任何性能结论。
 
@@ -177,5 +239,9 @@ B 类里唯一已有对照数据的一组，摘自先前 kernel 级测量（`rat
 | `bench/gems_dispatch.py` | 用 profiler 确认每个算子实际落到哪个 kernel（`GEMS=1`/`GEMS=0` 各跑一次） |
 | `bench/gems_bench2.py` | device kernel 时间 + 墙钟双指标 A/B |
 | `bench/gems_verify.py` | 两侧输入逐位相同的正确性比对 + registrar key 集合导出 |
+| `bench/bclass_ab2.py` | B 类 A/B，对照侧为厂商 `deep_gemm` / `flash_mla`；子命令 `moe`/`mqa`/`int8`/`sparse`/`sparse64`/`decode` |
+| `bench/bclass_ab.py` | B 类第一版，仅 `hc_head` 一组有效（其余对照侧选错，已由 v2 取代） |
 
-均为单卡、`GEMS=1` 与 `GEMS=0` 分两个进程跑（ATen 注册是全局的，同一进程无法干净地来回切）。
+C/D 类为单卡、`GEMS=1` 与 `GEMS=0` 分两个进程跑（ATen 注册是全局的，同一进程无法干净地来回切）。
+B 类不依赖 ATen 注册，两侧在同一进程内直接调用。原始记录在 `bench/raw/bclass_ab*.jsonl`，
+每次测量一条，失败也记录（含 traceback 尾部）。
