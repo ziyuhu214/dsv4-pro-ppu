@@ -1,0 +1,21 @@
+{
+  "bare_process_keys": 868,
+  "serve_worker_keys": 854,
+  "only_in_bare": [
+    "arange",
+    "arange.start",
+    "arange.start_step",
+    "cat",
+    "cat.out",
+    "clamp",
+    "clamp.Tensor",
+    "clamp_",
+    "clamp_.Tensor",
+    "clamp_max",
+    "clamp_max_",
+    "clamp_min",
+    "clamp_min_",
+    "copy_"
+  ],
+  "only_in_serve": []
+}

@@ -1,0 +1,155 @@
+{
+  "tag": "gems",
+  "gems": true,
+  "registrar": {
+    "all_keys": 868,
+    "all_ops": 868,
+    "config": 868,
+    "cpp_patched_ops": 0,
+    "exclude_ops": 0,
+    "vendor_unused_ops_list": 0
+  },
+  "rows": [
+    {
+      "op": "clamp",
+      "note": "traced",
+      "shape": "int32[64,256]",
+      "wall_us": 93.91,
+      "kernel_us": 1.45,
+      "kernels": {
+        "clamp_func_kernel_rank_1": 1.45
+      }
+    },
+    {
+      "op": "clamp",
+      "note": "traced",
+      "shape": "int32[64,8192]",
+      "wall_us": 90.17,
+      "kernel_us": 2.09,
+      "kernels": {
+        "clamp_func_kernel_rank_1": 2.09
+      }
+    },
+    {
+      "op": "clamp",
+      "note": "traced",
+      "shape": "int32[64,16384]",
+      "wall_us": 89.34,
+      "kernel_us": 2.61,
+      "kernels": {
+        "clamp_func_kernel_rank_1": 2.61
+      }
+    },
+    {
+      "op": "clamp_",
+      "note": "traced",
+      "shape": "int32[64,8192]",
+      "wall_us": 70.64,
+      "kernel_us": 2.09,
+      "kernels": {
+        "clamp_func_kernel_rank_1": 2.09
+      }
+    },
+    {
+      "op": "clamp_",
+      "note": "traced",
+      "shape": "int32[64,16384]",
+      "wall_us": 70.32,
+      "kernel_us": 2.82,
+      "kernels": {
+        "clamp_func_kernel_rank_1": 2.82
+      }
+    },
+    {
+      "op": "clamp",
+      "note": "repr",
+      "shape": "bf16[4096,2048]",
+      "wall_us": 91.49,
+      "kernel_us": 10.84,
+      "kernels": {
+        "clamp_func_kernel_rank_1": 10.84
+      }
+    },
+    {
+      "op": "copy_",
+      "note": "traced",
+      "shape": "bf16[64,16,8080]",
+      "wall_us": 100.23,
+      "kernel_us": 13.87,
+      "kernels": {
+        "_copy_kernel_kernel_rank_3": 13.87
+      }
+    },
+    {
+      "op": "copy_",
+      "note": "traced",
+      "shape": "int32[64]->int64",
+      "wall_us": 73.86,
+      "kernel_us": 0.79,
+      "kernels": {
+        "_copy_kernel_kernel_rank_1": 0.79
+      }
+    },
+    {
+      "op": "mm",
+      "note": "repr",
+      "shape": "bf16[64,7168]x[7168,2048]",
+      "wall_us": 66.87,
+      "kernel_us": 38.34,
+      "kernels": {
+        "mm_kernel_general": 38.34
+      }
+    },
+    {
+      "op": "mm",
+      "note": "repr",
+      "shape": "bf16[1024,7168]x[7168,2048]",
+      "wall_us": 351.31,
+      "kernel_us": 348.43,
+      "kernels": {
+        "mm_kernel_general": 348.43
+      }
+    },
+    {
+      "op": "mm",
+      "note": "repr",
+      "shape": "bf16[4096,7168]x[7168,2048]",
+      "wall_us": 1090.75,
+      "kernel_us": 1103.85,
+      "kernels": {
+        "mm_kernel_general": 1103.85
+      }
+    },
+    {
+      "op": "mm",
+      "note": "repr",
+      "shape": "bf16[4096,7168]x[7168,7168]",
+      "wall_us": 3733.02,
+      "kernel_us": 3750.38,
+      "kernels": {
+        "mm_kernel_general": 3750.38
+      }
+    },
+    {
+      "op": "addmm",
+      "note": "repr",
+      "shape": "bf16[4096,7168]x[7168,2048]+bias",
+      "wall_us": 1667.55,
+      "kernel_us": 1657.5,
+      "kernels": {
+        "addmm_kernel": 1116.51,
+        "broadcast_to_kernel": 541.0
+      }
+    },
+    {
+      "op": "bmm",
+      "note": "repr",
+      "shape": "bf16[1,4096,7168]x[1,7168,2048]",
+      "wall_us": 1116.92,
+      "kernel_us": 1110.28,
+      "kernels": {
+        "bmm_kernel": 1110.28
+      }
+    }
+  ]
+}

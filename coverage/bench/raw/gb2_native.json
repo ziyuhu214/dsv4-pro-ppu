@@ -1,0 +1,146 @@
+{
+  "tag": "native",
+  "gems": false,
+  "registrar": {},
+  "rows": [
+    {
+      "op": "clamp",
+      "note": "traced",
+      "shape": "int32[64,256]",
+      "wall_us": 8.37,
+      "kernel_us": 1.63,
+      "kernels": {
+        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::T": 1.63
+      }
+    },
+    {
+      "op": "clamp",
+      "note": "traced",
+      "shape": "int32[64,8192]",
+      "wall_us": 6.44,
+      "kernel_us": 2.24,
+      "kernels": {
+        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::T": 2.24
+      }
+    },
+    {
+      "op": "clamp",
+      "note": "traced",
+      "shape": "int32[64,16384]",
+      "wall_us": 6.48,
+      "kernel_us": 3.13,
+      "kernels": {
+        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::T": 3.13
+      }
+    },
+    {
+      "op": "clamp_",
+      "note": "traced",
+      "shape": "int32[64,8192]",
+      "wall_us": 5.38,
+      "kernel_us": 2.27,
+      "kernels": {
+        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::T": 2.23,
+        "Buffer Flush": 0.04
+      }
+    },
+    {
+      "op": "clamp_",
+      "note": "traced",
+      "shape": "int32[64,16384]",
+      "wall_us": 5.2,
+      "kernel_us": 3.19,
+      "kernels": {
+        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::T": 3.19
+      }
+    },
+    {
+      "op": "clamp",
+      "note": "repr",
+      "shape": "bf16[4096,2048]",
+      "wall_us": 8.74,
+      "kernel_us": 8.31,
+      "kernels": {
+        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::T": 8.31
+      }
+    },
+    {
+      "op": "copy_",
+      "note": "traced",
+      "shape": "bf16[64,16,8080]",
+      "wall_us": 5.51,
+      "kernel_us": 0.0,
+      "kernels": {}
+    },
+    {
+      "op": "copy_",
+      "note": "traced",
+      "shape": "int32[64]->int64",
+      "wall_us": 4.52,
+      "kernel_us": 2.05,
+      "kernels": {
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{la": 2.05
+      }
+    },
+    {
+      "op": "mm",
+      "note": "repr",
+      "shape": "bf16[64,7168]x[7168,2048]",
+      "wall_us": 49.1,
+      "kernel_us": 48.27,
+      "kernels": {
+        "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xBF16xBF16_tile64x64x16x32x128x4_layout0x0x0x0_align1x1x8x8_splitk0": 48.27
+      }
+    },
+    {
+      "op": "mm",
+      "note": "repr",
+      "shape": "bf16[1024,7168]x[7168,2048]",
+      "wall_us": 281.26,
+      "kernel_us": 280.44,
+      "kernels": {
+        "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xBF16xBF16_tile128x256x64x64x64x2_layout0x0x0x0_align1x1x8x8_splitk": 280.44
+      }
+    },
+    {
+      "op": "mm",
+      "note": "repr",
+      "shape": "bf16[4096,7168]x[7168,2048]",
+      "wall_us": 973.46,
+      "kernel_us": 966.42,
+      "kernels": {
+        "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xBF16xBF16_tile256x128x64x64x64x2_layout0x0x0x0_align1x1x8x8_splitk": 966.42
+      }
+    },
+    {
+      "op": "mm",
+      "note": "repr",
+      "shape": "bf16[4096,7168]x[7168,7168]",
+      "wall_us": 3155.3,
+      "kernel_us": 3155.38,
+      "kernels": {
+        "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xBF16xBF16_tile128x256x64x64x64x2_layout0x0x0x0_align1x1x8x8_splitk": 3155.38
+      }
+    },
+    {
+      "op": "addmm",
+      "note": "repr",
+      "shape": "bf16[4096,7168]x[7168,2048]+bias",
+      "wall_us": 973.24,
+      "kernel_us": 972.71,
+      "kernels": {
+        "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xBF16xBF16_tile256x128x64x64x64x2_layout0x0x0x0_align1x1x8x8_splitk": 972.71
+      }
+    },
+    {
+      "op": "bmm",
+      "note": "repr",
+      "shape": "bf16[1,4096,7168]x[1,7168,2048]",
+      "wall_us": 968.79,
+      "kernel_us": 971.72,
+      "kernels": {
+        "gemm_ktype0_aiu1_mtype1_dtypeBF16xBF16xFP32xBF16xBF16_tile256x128x64x64x64x2_layout0x0x0x0_align1x1x8x8_splitk": 971.72
+      }
+    }
+  ]
+}
